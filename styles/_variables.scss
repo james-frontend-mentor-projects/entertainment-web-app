@@ -1,0 +1,10 @@
+// Colours
+$white: #ffffff;
+$red: #fc4747;
+$dark-blue: #10141e;
+$greyish-blue: #5a698f;
+$semi-dark-blue: #161d2f;
+
+@function pxToRem($px) {
+  @return calc($px / 16) + rem;
+}

@@ -2,18 +2,17 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import { Header } from "../components/Header";
-import { LargeShow } from "../components/LargeShow";
 import { SearchBar } from "../components/SearchBar";
 import { SmallShow } from "../components/SmallShow";
 import DataContext from "../contexts/dataContext";
 import PageContext from "../contexts/pageContext";
 
-const Home: NextPage = () => {
-  const { trending, recommended, filteredResults, updateFilteredResults } = useContext(DataContext);
+const TvSeries: NextPage = () => {
+  const { bookmarkedMovies, bookmarkedTvShows, filteredResults, updateFilteredResults } = useContext(DataContext);
   const { updateCurrentPage } = useContext(PageContext);
 
   useEffect(() => {
-    updateCurrentPage && updateCurrentPage("index");
+    updateCurrentPage && updateCurrentPage("bookmarks");
   }, [updateCurrentPage]);
 
   const [searchText, setSearchText] = useState("");
@@ -45,18 +44,18 @@ const Home: NextPage = () => {
           </section>
         ) : (
           <>
-            <section className="trending">
-              <h2 className="section-heading">Trending</h2>
-              <div>
-                {trending.map((show) => (
-                  <LargeShow show={show} key={show.title} />
+            <section className="recommended-for-you">
+              <h2 className="section-heading">Bookmarked Movies</h2>
+              <div className="recommended-grid">
+                {bookmarkedMovies.map((show) => (
+                  <SmallShow show={show} key={show.title} />
                 ))}
               </div>
             </section>
             <section className="recommended-for-you">
-              <h2 className="section-heading">Recommended for you</h2>
+              <h2 className="section-heading">Bookmarked TV Shows</h2>
               <div className="recommended-grid">
-                {recommended.map((show) => (
+                {bookmarkedTvShows.map((show) => (
                   <SmallShow show={show} key={show.title} />
                 ))}
               </div>
@@ -68,4 +67,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default TvSeries;
