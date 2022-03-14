@@ -11,7 +11,7 @@ export const SmallShow: React.FC<Props> = ({ show }) => {
     <div className="show small-show">
       <Bookmark show={show} />
       <button className="show-image">
-        <Image src={show.thumbnail.regular.small} alt="Movie thumbnail" layout="fill" />
+        <Image src={show.thumbnail.regular.large} alt="Movie thumbnail" width="560" height="348" />
         <span className="sr-only">Play movie</span>
       </button>
       <section className="show-info">

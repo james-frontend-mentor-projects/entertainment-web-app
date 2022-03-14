@@ -33,9 +33,9 @@ const TvSeries: NextPage = () => {
         <SearchBar handleSearch={handleSearch} />
         {searchText.length > 0 ? (
           <section className="search-results">
-            <h2>
+            <h1>
               Found {filteredResults.length} result{filteredResults.length !== 1 && "s"} for ‘{searchText}’
-            </h2>
+            </h1>
             <div className="recommended-grid">
               {filteredResults.map((show) => (
                 <SmallShow show={show} key={show.title} />
@@ -44,6 +44,7 @@ const TvSeries: NextPage = () => {
           </section>
         ) : (
           <>
+            <h1 className="sr-only">Bookmarks</h1>
             <section className="recommended-for-you">
               <h2 className="section-heading">Bookmarked Movies</h2>
               <div className="recommended-grid">

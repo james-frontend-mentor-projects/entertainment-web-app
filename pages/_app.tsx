@@ -3,15 +3,21 @@ import type { AppProps } from "next/app";
 import { AuthProvider } from "../contexts/authContext";
 import { DataProvider } from "../contexts/dataContext";
 import { PageProvider } from "../contexts/pageContext";
+import { ProtectedRouteWrapper } from "../components/ProtectedRouteWrapper";
+import { LoadingProvider } from "../contexts/loadingContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <PageProvider>
-        <DataProvider>
-          <Component {...pageProps} />
-        </DataProvider>
-      </PageProvider>
+      <LoadingProvider>
+        <ProtectedRouteWrapper>
+          <PageProvider>
+            <DataProvider>
+              <Component {...pageProps} />
+            </DataProvider>
+          </PageProvider>
+        </ProtectedRouteWrapper>
+      </LoadingProvider>
     </AuthProvider>
   );
 }

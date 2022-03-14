@@ -12,7 +12,7 @@ export const LargeShow: React.FC<Props> = ({ show }) => {
       <Bookmark show={show} />
       <button
         className="show-image"
-        style={{ backgroundImage: `url(${show.thumbnail.trending?.small}` }}
+        style={{ backgroundImage: `url(${show.thumbnail.trending?.large}` }}
         aria-label="Play movie"
       >
         <section className="show-info">

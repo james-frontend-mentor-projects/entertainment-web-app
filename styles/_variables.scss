@@ -8,3 +8,6 @@ $semi-dark-blue: #161d2f;
 @function pxToRem($px) {
   @return calc($px / 16) + rem;
 }
+
+$bp-tablet: pxToRem(768);
+$bp-desktop: pxToRem(1440);

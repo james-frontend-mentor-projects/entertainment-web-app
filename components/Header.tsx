@@ -50,12 +50,10 @@ export const Header: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <Link href="/">
-        <a className="user">
-          <Image src={"/assets/image-avatar.png"} alt="User avatar" width="24" height="24" />
-          <span className="sr-only">User avatar</span>
-        </a>
-      </Link>
+      <a href="#" className="user">
+        <Image src={"/assets/image-avatar.png"} alt="User avatar" width="24" height="24" />
+        <span className="sr-only">User avatar</span>
+      </a>
     </header>
   );
 };

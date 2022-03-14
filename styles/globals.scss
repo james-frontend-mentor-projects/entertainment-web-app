@@ -10,11 +10,19 @@
 main {
   background-color: $dark-blue;
   min-height: 100vh;
+  color: $white;
+  font-weight: 300;
+}
+
+a,
+a:visited {
+  color: $red;
 }
 
 section:not(.show-info) {
   padding-top: pxToRem(16);
 
+  & > h1,
   & > h2 {
     color: $white;
     margin: 0 0 pxToRem(16) pxToRem(16);
@@ -33,7 +41,13 @@ section:not(.show-info) {
 
 .recommended-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(pxToRem(165), 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
   gap: pxToRem(8);
   padding: pxToRem(16);
   padding-top: 0;
@@ -61,6 +75,7 @@ section:not(.show-info) {
     width: 100%;
     border-radius: pxToRem(8);
 
+    h1,
     h2 {
       color: $white;
       font-weight: 500;
@@ -113,6 +128,7 @@ section:not(.show-info) {
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.75) 100%);
       padding: 0 0 pxToRem(16) pxToRem(16);
 
+      h1,
       h2 {
         font-size: pxToRem(15);
       }
@@ -138,6 +154,7 @@ section:not(.show-info) {
     .show-info {
       padding-bottom: pxToRem(4);
 
+      h1,
       h2 {
         font-size: pxToRem(14);
       }
@@ -189,5 +206,85 @@ section:not(.show-info) {
     background-color: $dark-blue;
     border: 2px solid transparent;
     font-weight: 300;
+  }
+}
+
+main.login {
+  padding: 0 pxToRem(24);
+  padding-top: pxToRem(48);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    align-self: center;
+  }
+
+  h1 {
+    font-weight: 300;
+    color: $white;
+  }
+}
+
+.login-container {
+  background: $semi-dark-blue;
+  width: 100%;
+  max-width: pxToRem(400);
+  margin-top: pxToRem(58.4);
+  border-radius: pxToRem(10);
+  padding: pxToRem(24) pxToRem(24) pxToRem(32) pxToRem(24);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(24);
+  margin-top: pxToRem(40);
+
+  input {
+    border: none;
+    border-bottom: 1px solid $greyish-blue;
+    padding: 0 0 pxToRem(18) pxToRem(16);
+    background-color: $semi-dark-blue;
+    font-size: pxToRem(15);
+    color: white;
+    caret-color: $red;
+    width: 100%;
+
+    &:focus-visible,
+    &:active {
+      border-bottom-color: $white;
+    }
+
+    &:invalid {
+      border-bottom-color: $red;
+    }
+  }
+
+  .input-wrapper {
+    position: relative;
+
+    .empty-field {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $red;
+    }
+  }
+}
+
+.red-button {
+  color: $white;
+  background-color: $red;
+  border: none;
+  border-radius: pxToRem(6);
+  padding: pxToRem(15);
+  margin: pxToRem(16) 0 pxToRem(24) 0;
+
+  &:active,
+  &:focus-visible,
+  &:hover {
+    background-color: $white;
+    color: $semi-dark-blue;
   }
 }
